@@ -17,20 +17,3 @@ Running the `Main.java` class will:
 2. Instantiate social networks.
 3. Attempt to perform actions like posting photos, sharing content, and starting live streams.
 4. Handle errors if a specific network doesn't support an action.
-
-## 📂 File Structure
-```text
-src/br/inatel/c125/
-├── files/
-│   ├── facebook.txt
-│   ├── twitter.txt
-│   └── ...
-├── interfaces/
-│   ├── Sharing.java
-│   └── VideoConference.java
-├── socialnetworks/
-│   ├── SocialNetwork.java
-│   ├── Facebook.java
-│   └── ...
-└── user/
-    └── User.java
