@@ -1,2 +1,0 @@
-senha=googlePlus123
-numeroDeAmigos=3

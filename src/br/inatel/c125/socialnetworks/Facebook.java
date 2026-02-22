@@ -1,7 +1,7 @@
 package br.inatel.c125.socialnetworks;
 
-import br.inatel.c125.interfaces.Compartilhamento;
-import br.inatel.c125.interfaces.VideoConferencia;
+import br.inatel.c125.interfaces.Sharing;
+import br.inatel.c125.interfaces.VideoConference;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,15 +9,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class Facebook extends RedeSocial implements VideoConferencia, Compartilhamento {
+public class Facebook extends SocialNetwork implements VideoConference, Sharing {
 
     public Facebook() {
         try {
-            Path arquivo = Paths.get("src/br/inatel/c125/arquivos/facebook.txt");
-            List<String> lista = Files.readAllLines(arquivo);
+            Path file = Paths.get("src/br/inatel/c125/files/facebook.txt");
+            List<String> list = Files.readAllLines(file);
 
-            this.senha = lista.get(0).split("=")[1];
-            this.numAmigos = Integer.parseInt(lista.get(1).split("=")[1]);
+            this.password = list.get(0).split("=")[1];
+            this.numFriends = Integer.parseInt(list.get(1).split("=")[1]);
 
         } catch (IOException e) {
             System.out.println(e);
@@ -25,28 +25,28 @@ public class Facebook extends RedeSocial implements VideoConferencia, Compartilh
     }
 
     @Override
-    public void postarFoto() {
-        System.out.println("Foto postada com sucesso no Facebook");
+    public void postPhoto() {
+        System.out.println("Photo successfully posted on Facebook");
     }
 
     @Override
-    public void postarVideo() {
-        System.out.println("Video postada com sucesso no Facebook");
+    public void postVideo() {
+        System.out.println("Video successfully posted on Facebook");
     }
 
     @Override
-    public void postarComentario() {
-        System.out.println("Comentário publicado com sucesso no Facebook");
+    public void postComment() {
+        System.out.println("Comment successfully published on Facebook");
     }
 
     @Override
-    public void fazStreaming() {
-        System.out.println("Iniciando Streaming no Facebook...");
-        System.out.println("Streaming finalizado");
+    public void stream() {
+        System.out.println("Starting Stream on Facebook...");
+        System.out.println("Stream finished");
     }
 
     @Override
-    public void compartilhar() {
-        System.out.println("Publicação compartilhada com sucesso no Facebook");
+    public void share() {
+        System.out.println("Post successfully shared on Facebook");
     }
 }

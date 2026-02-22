@@ -1,2 +1,0 @@
-senha=twitter123
-numeroDeAmigos=5

@@ -1,7 +1,7 @@
 package br.inatel.c125;
 
 import br.inatel.c125.socialnetworks.*;
-import br.inatel.c125.usuario.Usuario;
+import br.inatel.c125.user.User; // Alterado de 'usuario' para 'user'
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,38 +9,37 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<RedeSocial> redeSocial = new ArrayList<>();
+        List<SocialNetwork> socialNetworks = new ArrayList<>();
 
-        redeSocial.add(new Facebook());
-        redeSocial.add(new Twitter());
+        socialNetworks.add(new Facebook());
+        socialNetworks.add(new Twitter());
 
-        Usuario usuario = new Usuario("Bagatela", "eldourado@ss.com.br", redeSocial);
+        User user = new User("Bagatela", "eldourado@ss.com.br", socialNetworks);
 
         System.out.println();
 
         try {
-            RedeSocial conta = usuario.getRedeSocial().get(0);
-            conta.postarFoto();
+            SocialNetwork account = user.getSocialNetworks().get(0);
+            account.postPhoto();
 
-            if (conta instanceof Facebook facebook) {
+            if (account instanceof Facebook facebook) {
 
-                facebook.compartilhar();
-                facebook.fazStreaming();
+                facebook.share();
+                facebook.stream();
 
-            } else if (conta instanceof GooglePlus googlePlus) {
+            } else if (account instanceof GooglePlus googlePlus) {
 
-                googlePlus.compartilhar();
-                googlePlus.fazStreaming();
+                googlePlus.share();
+                googlePlus.stream();
 
-            } else if (conta instanceof Twitter twitter) {
+            } else if (account instanceof Twitter twitter) {
 
-                twitter.compartilhar();
-                System.out.println("Erro: este tipo de conta não permite fazer streaming");
+                twitter.share();
+                System.out.println("Error: this type of account does not support streaming");
 
             } else {
-                System.out.println("Erro: este tipo de conta não permite compartilhamento");
-                System.out.println("Erro: este tipo de conta não permite fazer streaming");
-
+                System.out.println("Error: this type of account does not support sharing");
+                System.out.println("Error: this type of account does not support streaming");
             }
 
         } catch (IndexOutOfBoundsException e) {
@@ -50,16 +49,16 @@ public class Main {
         System.out.println();
 
         try {
-            RedeSocial conta = usuario.getRedeSocial().get(1);
+            SocialNetwork account = user.getSocialNetworks().get(1);
 
-            conta.postarComentario();
-            conta.curtirPublicacao();
-            conta.postarVideo();
+            account.postComment();
+            account.likePost();
+            account.postVideo();
 
         } catch (IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("\nPrograma finalizado");
+        System.out.println("\nProgram finished");
     }
 }

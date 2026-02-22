@@ -1,0 +1,2 @@
+password=twitter123
+friendsNumber=5

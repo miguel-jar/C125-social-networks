@@ -1,0 +1,2 @@
+password=googlePlus123
+friendsNumber=3

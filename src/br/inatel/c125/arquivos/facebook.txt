@@ -1,2 +1,0 @@
-senha=facebook123
-numeroDeAmigos=2

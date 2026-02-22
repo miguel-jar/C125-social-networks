@@ -1,0 +1,2 @@
+password=instagram123
+friendsNumber=4

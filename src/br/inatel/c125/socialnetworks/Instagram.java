@@ -6,15 +6,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class Instagram extends RedeSocial {
+public class Instagram extends SocialNetwork {
 
     public Instagram() {
         try {
-            Path arquivo = Paths.get("src/br/inatel/c125/arquivos/instagram.txt");
-            List<String> lista = Files.readAllLines(arquivo);
+            Path file = Paths.get("src/br/inatel/c125/files/instagram.txt");
+            List<String> list = Files.readAllLines(file);
 
-            this.senha = lista.get(0).split("=")[1];
-            this.numAmigos = Integer.parseInt(lista.get(1).split("=")[1]);
+            this.password = list.get(0).split("=")[1];
+            this.numFriends = Integer.parseInt(list.get(1).split("=")[1]);
 
         } catch (IOException e) {
             System.out.println(e);
@@ -22,17 +22,17 @@ public class Instagram extends RedeSocial {
     }
 
     @Override
-    public void postarFoto() {
-        System.out.println("Foto postada com sucesso no Instagram");
+    public void postPhoto() {
+        System.out.println("Photo successfully posted on Instagram");
     }
 
     @Override
-    public void postarVideo() {
-        System.out.println("Video postada com sucesso no Instagram");
+    public void postVideo() {
+        System.out.println("Video successfully posted on Instagram");
     }
 
     @Override
-    public void postarComentario() {
-        System.out.println("Comentário publicado com sucesso no Instagram");
+    public void postComment() {
+        System.out.println("Comment successfully published on Instagram");
     }
 }

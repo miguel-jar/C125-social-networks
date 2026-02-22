@@ -1,6 +1,6 @@
 package br.inatel.c125.socialnetworks;
 
-import br.inatel.c125.interfaces.Compartilhamento;
+import br.inatel.c125.interfaces.Sharing;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,15 +8,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class Twitter extends RedeSocial implements Compartilhamento {
+public class Twitter extends SocialNetwork implements Sharing {
 
     public Twitter() {
         try {
-            Path arquivo = Paths.get("src/br/inatel/c125/arquivos/twitter.txt");
-            List<String> lista = Files.readAllLines(arquivo);
+            Path file = Paths.get("src/br/inatel/c125/files/twitter.txt");
+            List<String> list = Files.readAllLines(file);
 
-            this.senha = lista.get(0).split("=")[1];
-            this.numAmigos = Integer.parseInt(lista.get(1).split("=")[1]);
+            this.password = list.get(0).split("=")[1];
+            this.numFriends = Integer.parseInt(list.get(1).split("=")[1]);
 
         } catch (IOException e) {
             System.out.println(e);
@@ -24,22 +24,22 @@ public class Twitter extends RedeSocial implements Compartilhamento {
     }
 
     @Override
-    public void postarFoto() {
-        System.out.println("Foto postada com sucesso no Twitter");
+    public void postPhoto() {
+        System.out.println("Photo successfully posted on Twitter");
     }
 
     @Override
-    public void postarVideo() {
-        System.out.println("Video postada com sucesso no Twitter");
+    public void postVideo() {
+        System.out.println("Video successfully posted on Twitter");
     }
 
     @Override
-    public void postarComentario() {
-        System.out.println("Comentário publicado com sucesso no Twitter");
+    public void postComment() {
+        System.out.println("Comment successfully published on Twitter");
     }
 
     @Override
-    public void compartilhar() {
-        System.out.println("Publicação compartilhada com sucesso no Twitter");
+    public void share() {
+        System.out.println("Post successfully shared on Twitter");
     }
 }
